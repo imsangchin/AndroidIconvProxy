@@ -17,8 +17,9 @@ LOCAL_PATH := $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := iconv
+#LOCAL_LDLIBS += -lc -llog
 LOCAL_LDLIBS += -lc
-#LOCAL_LDLIBS += -ljnigraphics -llog
 LOCAL_SRC_FILES := iconv_proxy.c
+LOCAL_STATIC_LIBRARIES := iconv_static
 
 include $(BUILD_SHARED_LIBRARY)
