@@ -83,7 +83,7 @@ void Java_iconv_Proxy_init(JNIEnv* env, jclass clazz)
     CharsetEncoder = (*env)->NewGlobalRef(env, CharsetEncoder);
 }
 
-jboolean Java_iconv_Proxy_test1(JNIEnv* env, jclass clazz)
+/*jboolean Java_iconv_Proxy_test1(JNIEnv* env, jclass clazz)
 {
     const char* str = "asdf";
     size_t slen = strlen(str);
@@ -99,7 +99,7 @@ jboolean Java_iconv_Proxy_test1(JNIEnv* env, jclass clazz)
     iconv_close(latin1_cd);
 
     return cmp == 0;
-}
+}*/
 
 iconv_t libiconv_open(const char* tocode, const char* fromcode)
 {
@@ -250,8 +250,8 @@ size_t iconv(iconv_t cd, const char** inbuf, size_t* inbytesleft, char** outbuf,
 
     *inbuf += *inbytesleft;
     *inbytesleft = 0;
-    *outbuf += size;
-    *outbytesleft -= size;
+    *outbuf += outSize;
+    *outbytesleft -= outSize;
 
     return size;
 }
